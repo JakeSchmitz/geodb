@@ -22,7 +22,7 @@ public class GeoDBTestSupport {
     @Before
     public void setUp() throws Exception {
         Class.forName("org.h2.Driver");
-        cx = DriverManager.getConnection("jdbc:h2:target/geodb");
+        cx = DriverManager.getConnection("jdbc:h2:./target/geodb");
     }
     
     @After

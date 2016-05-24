@@ -702,6 +702,21 @@ public class GeoDB {
         
         return g1.contains( g2 );
     }
+
+    /**
+     *  Returns true if and only if no points of B lie in the exterior of A, including the Boundary of A,
+     *  and at least one point of the interior of B lies in the interior of A.
+     */
+    public static boolean ST_Covers( byte[] wkb1, byte[] wkb2 ) {
+        if ( wkb1 == null || wkb2 == null ) {
+            return false;
+        }
+
+        Geometry g1 = gFromWKB(wkb1);
+        Geometry g2 = gFromWKB(wkb2);
+
+        return g1.covers( g2 );
+    }
     
     /**
      * Returns TRUE if the Geometries do not "spatially intersect" - if they do not share any space together.
